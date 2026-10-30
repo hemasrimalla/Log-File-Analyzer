@@ -1,0 +1,82 @@
+============================================================================
+                  LOG FILE ANALYZER - SUMMARY REPORT                  
+============================================================================
+ Source File Analyzed    : sample_access.log
+ Total Log Lines Read    : 75
+ Valid Requests Parsed   : 75
+ Malformed / Skipped     : 0
+ Overall Error Rate      : 25.33% (19 error responses)
+ Total Bandwidth Served  : 208.29 KB (213,284 bytes)
+ Average Response Size   : 2.78 KB
+============================================================================
+
+1. HTTP REQUEST METHODS
+----------------------------------------------------------------------------
+Method       Count        Percentage      Distribution
+----------------------------------------------------------------------------
+GET          56            74.67%        ##################
+POST         16            21.33%        #####
+PUT          2              2.67%        
+DELETE       1              1.33%        
+
+2. HTTP STATUS CODE DISTRIBUTION
+----------------------------------------------------------------------------
+Status Class Summary:
+  - 2xx Success            :    53 requests ( 70.7%)
+  - 3xx Redirection        :     3 requests (  4.0%)
+  - 4xx Client Error       :    16 requests ( 21.3%)
+  - 5xx Server Error       :     3 requests (  4.0%)
+
+Status Code    Description                Count      Percentage
+----------------------------------------------------------------------------
+200            OK                         50          66.67%
+403            Forbidden                  7            9.33%
+401            Unauthorized               4            5.33%
+404            Not Found                  4            5.33%
+201            Created                    2            2.67%
+304            Not Modified               2            2.67%
+500            Internal Server Error      2            2.67%
+204            No Content                 1            1.33%
+301            Moved Permanently          1            1.33%
+400            Bad Request                1            1.33%
+502            Bad Gateway                1            1.33%
+
+3. ERROR RESPONSES BREAKDOWN (4xx & 5xx)
+----------------------------------------------------------------------------
+ Client Errors (4xx)     : 16 (21.3%)
+ Server Errors (5xx)     : 3 (4.0%)
+
+Top Endpoints Generating Errors:
+  - /login                         :   10 failed requests
+  - /api/users                     :    2 failed requests
+  - /admin                         :    1 failed requests
+  - /wp-login.php                  :    1 failed requests
+  - /api/feedback                  :    1 failed requests
+
+4. TOP 5 MOST FREQUENT CLIENT IP ADDRESSES
+----------------------------------------------------------------------------
+Rank   IP Address         Requests     Traffic %    Bandwidth
+----------------------------------------------------------------------------
+#1     192.168.1.10       17            22.67%     71.08 KB    
+#2     10.0.0.45          14            18.67%     8.81 KB     
+#3     172.16.0.5         9             12.00%     14.15 KB    
+#4     192.168.1.15       8             10.67%     41.90 KB    
+#5     192.168.1.105      7              9.33%     12.69 KB    
+
+5. TOP 5 MOST REQUESTED ENDPOINTS
+----------------------------------------------------------------------------
+Rank   Endpoint                           Requests     Percentage
+----------------------------------------------------------------------------
+#1     /api/users                         14            18.67%
+#2     /index.html                        13            17.33%
+#3     /login                             12            16.00%
+#4     /products                          11            14.67%
+#5     /healthz                           6              8.00%
+
+6. SECURITY & ANOMALY OBSERVATIONS
+----------------------------------------------------------------------------
+ [!] Suspicious Client Activity Detected:
+     * IP 10.0.0.45: 14/14 requests failed (100.0% failure rate) -> Potential scanner/brute-force activity.
+============================================================================
+                     END OF SUMMARY REPORT                            
+============================================================================
